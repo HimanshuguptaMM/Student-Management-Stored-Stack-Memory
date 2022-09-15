@@ -20,7 +20,7 @@ class UseCaseUpdateStudent(private val studentStore: StudentStore) : UseCaseTemp
             name,
             semester,
             studentid,
-            phoneNumber,
+           phoneNumber,
         )
         studentStore.update(updatedstudent)
     }

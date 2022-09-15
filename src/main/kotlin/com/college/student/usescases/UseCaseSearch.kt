@@ -10,13 +10,8 @@ class UseCaseSearch(private val studentStore: StudentStore) : UseCaseTemplate() 
         val systemIn = Scanner(System.`in`)
         println("search by student name")
         val name = systemIn.nextLine()
-        val searchstudent = Student(
-            name,
-            "",
-        "",
-        "",
-        )
-        studentStore.search(searchstudent).forEach {
+
+        studentStore.search(name).forEach {
            println(it)
         }
     }

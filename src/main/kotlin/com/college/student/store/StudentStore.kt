@@ -22,21 +22,18 @@ class StudentStore : Store<Student>() {
         newStudent?.let {
             newStudent.name = data.name
             newStudent.semester = data.semester
-            newStudent.phoneNumber = data.phoneNumber
+            newStudent.phone = data.phone
 
         }
     }
 
 
 
-    override fun search(data: Student): MutableList<Student> {
+    override fun search(data: String): MutableList<Student> {
         var searchResult = mutableListOf<Student>() //Consider Student as a Data Type LIKE STRING AND int
         studentList.forEach {
-            if (it.name == data.name) {
+            if (it.name == data) {
                 searchResult.add(it)
-
-            } else {
-
             }
 
         }
