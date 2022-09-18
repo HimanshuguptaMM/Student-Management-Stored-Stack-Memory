@@ -17,27 +17,34 @@ class UseCaseCreateStudent(private val store: StudentStore) : UseCaseTemplate() 
         println("\n please input semester")
         val semester = scannerInput.nextLine()
 
-println("\n please type phone number")
-        var phoneNumber = scannerInput.nextLine()
-        val length = phoneNumber.length
-        if (length < 10 || length > 10) {
-            println("please enter valid phoneNumber")
- phoneNumber=scannerInput.nextLine()
+        var phoneNumber = ""
+        println("\n please input phoneNUmber")
 
 
+        while (phoneNumber.length != 10) {
+            phoneNumber = scannerInput.nextLine()
+            if (phoneNumber.length == 10) {
+                println("student created successfully")
 
+            } else {
+                println("please enter valid phoneNUMBERR" )
+            }
+
+
+                phoneNumber = scannerInput.nextLine()
+            }
+
+
+            val student = Student(
+                name,
+                studentId,
+                semester,
+                phoneNumber,
+            )
+            println(student)
+            store.create(student)
         }
 
-        val student = Student(
-            name,
-            studentId,
-            semester,
-            phoneNumber,
-        )
-        println(student)
-        store.create(student)
     }
-
-}
 
 
