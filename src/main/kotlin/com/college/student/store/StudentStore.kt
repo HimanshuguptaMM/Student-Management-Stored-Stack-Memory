@@ -31,24 +31,22 @@ class StudentStore : Store<Student>() {
     override fun search(data: String): MutableList<Student> {
         var searchResult = mutableListOf<Student>() //Consider Student as a Data Type LIKE STRING AND int
 
-            for (i in 0 until studentList.size) { //
-                if (i % 2 == 0) {
-                    if (studentList[i -1].name == data) {
-                        searchResult.add(studentList[i])
-                    }
-                }
+        for (i in 0 until studentList.size) { //
+            if (studentList[i].name == data) {
+                println("found student :${studentList[i]}")
             }
+        }
 
 
 
-    return searchResult
-}
+        return searchResult
+    }
 
 
-override fun getData(): MutableList<Student> {
+    override fun getData(): MutableList<Student> {
 
-    return studentList
-}
+        return studentList
+    }
 
 }
 

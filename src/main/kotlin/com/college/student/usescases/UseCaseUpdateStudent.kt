@@ -2,9 +2,11 @@ package com.college.student.usescases
 
 import com.college.student.models.Student
 import com.college.student.store.StudentStore
-
 import java.util.*
 
+/**
+ * @param studentStore The user can be updated their field and changes in a storage.
+ * */
 class UseCaseUpdateStudent(private val studentStore: StudentStore) : UseCaseTemplate() {
     override fun perform() {
         val systemIn = Scanner(System.`in`)
@@ -20,7 +22,7 @@ class UseCaseUpdateStudent(private val studentStore: StudentStore) : UseCaseTemp
             name,
             semester,
             studentid,
-           phoneNumber,
+            phoneNumber,
         )
         studentStore.update(updatedstudent)
     }

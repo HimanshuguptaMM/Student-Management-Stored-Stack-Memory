@@ -27,10 +27,7 @@ fun askUserAgain() {
     showOptions()
 
     val scannerInput = Scanner(System.`in`)
-    val optionThatUserChoose = scannerInput.nextInt()
-    println("Use choose $optionThatUserChoose")
-
-    processOption(optionThatUserChoose)
+    processOption(scannerInput.nextInt())
 }
 
 fun informUser() {
@@ -40,43 +37,48 @@ fun informUser() {
     Thread.sleep(500)
 }
 
-fun processOption(optionThatUserChoose: Int) {
+/**
+ * This function takes input from the user and if the option is valid, it executes that operation.
+ * @param optionThatUserChoose This is the option that the user wants to perform.
+ * @return A string that denotes user operation.
+ *  */
+fun processOption(optionThatUserChoose: Int) { //documentation....
     when (optionThatUserChoose) {
         MyConstants.CREATE -> {
             val useCaseCreateStudent = UseCaseCreateStudent(studentStore)
             useCaseCreateStudent.perform()
-            askUserAgain()
         }
 
         MyConstants.DELETE -> {
             val useCaseDeleteStudent = UseCaseDeleteStudent(studentStore)
             useCaseDeleteStudent.perform()
-            askUserAgain()
         }
 
         MyConstants.UPDATE -> {
             val useCaseUpdateStudent = UseCaseUpdateStudent(studentStore)
             useCaseUpdateStudent.perform()
-            askUserAgain()
         }
 
         MyConstants.GETLIST -> {
             val useCaseGetStudent = UseCaseGetStudent(studentStore)
             useCaseGetStudent.perform()
-            askUserAgain()
         }
 
         MyConstants.SEARCH -> {
             val useCaseSearch = UseCaseSearch(studentStore)
             useCaseSearch.perform()
-            askUserAgain()
         }
 
         else -> {
             println("Option not available")
         }
     }
+    askUserAgain()
 }
+
+/**
+ * showOptions - This is the option that the user wants to choose.
+ */
 fun showOptions() {
     println("${MyConstants.CREATE}. Create Student")
     Thread.sleep(500)
